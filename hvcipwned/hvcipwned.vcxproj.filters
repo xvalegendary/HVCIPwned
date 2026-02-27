@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PoC">
+      <UniqueIdentifier>{1f86d289-b10f-4ab6-a2b9-e61c8aa49b33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoC\include">
+      <UniqueIdentifier>{6659f296-5221-416f-92b9-6bcd31fd8e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoC\src">
+      <UniqueIdentifier>{8cd6dcc3-85c2-4687-aa1d-956c86e68d3f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>PoC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="krw.c">
+      <Filter>PoC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="leak.c">
+      <Filter>PoC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="exploit.c">
+      <Filter>PoC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="token.c">
+      <Filter>PoC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="device.c">
+      <Filter>PoC\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+    <ClInclude Include="offsets.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+    <ClInclude Include="leak.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+    <ClInclude Include="krw.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+    <ClInclude Include="token.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+    <ClInclude Include="exploit.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+    <ClInclude Include="device.h">
+      <Filter>PoC\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
