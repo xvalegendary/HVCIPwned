@@ -63,18 +63,18 @@ No control-flow pointers are hijacked.
 
 ### Compile
 
-1. Open `CVE-2024-35250.sln` in Visual Studio
+1. Open `hvcipwned.sln` in Visual Studio
 2. Select **Release | x64**
 3. Build → Build Solution (`Ctrl+Shift+B`)
 
-Output binary: `x64\Release\CVE-2024-35250.exe`
+Output binary: `x64\Release\hvcipwned.exe`
 
 ### Manual cl.exe build
 
 ```bat
 cl.exe /nologo /W4 /O2 /TC ^
-    src\main.c src\device.c src\leak.c src\krw.c src\token.c src\exploit.c ^
-    /Iinclude ^
+    main.c device.c leak.c krw.c token.c exploit.c ^
+    /I ^
     /Fe:exploit.exe ^
     /link setupapi.lib kernel32.lib advapi32.lib
 ```
@@ -82,7 +82,7 @@ cl.exe /nologo /W4 /O2 /TC ^
 ## Usage
 
 ```
-CVE-2024-35250.exe
+hvcipwned.exe
 ```
 
 Run from an unprivileged user session on a vulnerable (unpatched) system.
@@ -122,28 +122,26 @@ press enter to exit...
 ## Project Structure
 
 ```
-CVE-2024-35250/
-├── CVE-2024-35250.sln
-├── CVE-2024-35250.vcxproj
-├── CVE-2024-35250.vcxproj.filters
+hvcipwned/
+├── hvcipwned.sln
+├── hvcipwned.vcxproj
+├── hvcipwned.vcxproj.filters
 ├── README.md
 ├── LICENSE
 ├── .gitignore
-├── include/
-│   ├── common.h         - types, log macros, nt api typedefs
-│   ├── offsets.h        - per-build eprocess field offsets
-│   ├── device.h         - ks device enumeration
-│   ├── leak.h           - kernel address leaks
-│   ├── krw.h            - r/w primitive context
-│   ├── token.h          - token swap + shell spawn
-│   └── exploit.h        - top-level entry
-└── src/
-    ├── main.c           - entry point
-    ├── device.c         - setupapi device open
-    ├── leak.c           - NtQuerySystemInformation leaks
-    ├── krw.c            - vulnerability trigger + pool spray + r/w
-    ├── token.c          - eprocess walk + token overwrite
-    └── exploit.c        - orchestration
+├── common.h         - types, log macros, nt api typedefs
+├── offsets.h        - per-build eprocess field offsets
+├── device.h         - ks device enumeration
+├── leak.h           - kernel address leaks
+├── krw.h            - r/w primitive context
+├── token.h          - token swap + shell spawn
+└── exploit.h        - top-level entry
+├── main.c           - entry point
+├── device.c         - setupapi device open
+├── leak.c           - NtQuerySystemInformation leaks
+├── krw.c            - vulnerability trigger + pool spray + r/w
+├── token.c          - eprocess walk + token overwrite
+└── exploit.c        - orchestration
 ```
 
 ## Supported Builds
